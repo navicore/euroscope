@@ -2,13 +2,14 @@
 
 ## Module Size: 24HP ✓
 
-**Decision**: 24HP width (no size pressure)
+**Decision**: 24HP width
 
 **Rationale**:
 - Function deserves space over market trends
-- Comfortable viewing area for 4.3" display
-- Room for tactile controls
+- Perfect fit for 3.5" 480×320 display + side controls
+- Room for tactile controls with proper spacing
 - Easy component layout and assembly
+- Verified fit: Display (56mm) + controls (30mm) + margins + jacks = 118mm ✓
 
 ## Input Channels: 2 ✓
 
@@ -30,16 +31,20 @@
 - Simplifies ADC requirements (10-50kSPS adequate)
 - RP2040 built-in ADC is sufficient
 
-## Display: 4.3" Non-Touch SPI TFT ✓
+## Display: 3.5" 480×320 Non-Touch SPI TFT ✓
 
-**Decision**: 4.3" SPI display without touch
+**Decision**: 3.5" 480×320 ILI9488/ILI9486 SPI display without touch
 
 **Rationale**:
-- Fits perfectly in 24HP with room for jacks
-- Touch screens are problematic during live performance
-- SPI has excellent Rust embedded-graphics support
-- ~150-200mA power draw is comfortable for Eurorack bus
-- Good visibility without being overpowered
+- 480 pixels wide (excellent for scope time-axis viewing)
+- Landscape 3:2 aspect ratio (wider = more time samples visible)
+- Proven SPI interface with RP2040
+- Verified Rust support via mipidsi crate + embedded-graphics
+- ~100-150mA power draw (within Eurorack budget)
+- Physical size (56mm PCB width) perfect for 24HP side-by-side layout
+- Touch screens problematic during live performance (eliminated)
+- Readily available ($8-15) from multiple sources
+- Known working examples with RP2040
 
 ## Controls: Tactile (Encoders + Buttons) ✓
 
