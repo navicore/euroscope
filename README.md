@@ -45,3 +45,12 @@ A custom 2-channel Eurorack oscilloscope module designed for audio and CV visual
 **Phase**: Initial design and planning
 
 See `/docs/` for detailed design decisions.
+
+## License
+
+This project uses a dual-license approach:
+
+- **Firmware/Software**: MIT License (see LICENSE-SOFTWARE)
+- **Hardware Designs**: Creative Commons BY-SA 4.0 (see LICENSE-HARDWARE)
+
+This follows the practice of open hardware projects like Mutable Instruments.
