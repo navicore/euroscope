@@ -116,7 +116,7 @@
 **Decision**: Store scope settings in RP2040 flash
 
 **Rationale**:
-- Core feature (reason for building this vs buying Mordax)
+- Core feature (reason for building this vs buying existing product)
 - RP2040 has built-in flash
 - Settings survive power cycles
 - No tedious re-dialing on rack power-up

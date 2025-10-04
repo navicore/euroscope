@@ -8,7 +8,7 @@ A custom 2-channel Eurorack oscilloscope module designed for audio and CV visual
 - **Tactile controls**: Encoders and buttons for performance-friendly operation
 - **Focused scope**: Audio rate and sub-audio CV visualization
 - **No signal loading**: High impedance inputs, clean buffered passthroughs
-- **Persistent settings**: Settings survive power cycles (unlike Mordax Data)
+- **Persistent settings**: Settings survive power cycles
 
 ## Specifications
 
@@ -53,4 +53,4 @@ This project uses a dual-license approach:
 - **Firmware/Software**: MIT License (see LICENSE-SOFTWARE)
 - **Hardware Designs**: Creative Commons BY-SA 4.0 (see LICENSE-HARDWARE)
 
-This follows the practice of open hardware projects like Mutable Instruments.
+This follows the practice of open hardware projects.
