@@ -108,8 +108,13 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 **Voltage summing math**:
 - Signal: ±1.67V
 - Offset: +1.65V
-- Output: Signal + Offset = -0.02V to +3.32V
-- **ADC sees**: ~0V to 3.3V ✓
+- Theoretical output: Signal + Offset = -0.02V to +3.32V
+
+**ADC protection for negative voltage**:
+- The calculated -0.02V is within resistor tolerance (1% on 620kΩ and 100kΩ)
+- **D4 (Schottky diode to GND) clamps any negative excursion to ~0V**
+- In practice: ADC input never goes below 0V due to clamp
+- **ADC sees**: 0V to 3.3V ✓ (D4 ensures minimum is 0V, not -0.02V)
 
 ---
 
@@ -122,13 +127,15 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 
 **D3, D4: Schottky Clamp Diodes at ADC Input**
 - D3: BAT54S to +3.3V (clamps high)
-- D4: BAT54S to GND (clamps low)
+- D4: BAT54S to GND (clamps low - **critical for negative voltage protection**)
 - Final protection if op-amp output somehow exceeds 0-3.3V range
 
 **Why double protection?**
 - Op-amps can output rail voltage (±12V in fault conditions)
-- R7 + D3/D4 ensure ADC never sees >3.3V
+- R7 + D3/D4 ensure ADC never sees >3.3V or <0V
 - RP2040 ADC is fragile - **redundant protection is cheap insurance**
+
+**Note on negative voltage**: The theoretical calculation shows -0.02V minimum (due to resistor tolerances), but D4 clamps this to 0V in practice. The ADC never sees negative voltage.
 
 ---
 
@@ -220,6 +227,7 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 |----------|---------------|--------|-------------------|
 | Normal audio | ±5V | (5V ÷ 7.2) + 1.65V = 2.34V @ ADC | None (normal operation) |
 | Hot CV | ±10V | (10V ÷ 7.2) + 1.65V = 3.04V @ ADC | None (within range) |
+| Max negative | -12V | Calculated -0.02V, clamped to 0V @ ADC | D4 clamp (prevents negative) |
 | Over-voltage | +15V | Clamped to +12.3V by D1 | R_PROT + D1 |
 | Reverse voltage | -15V | Clamped to -12.3V by D2 | R_PROT + D2 |
 | Op-amp fault | U1A outputs +12V | ADC sees 3.3V (clamped by D3) | R7 + D3 |
