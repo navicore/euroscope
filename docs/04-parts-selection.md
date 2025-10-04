@@ -251,13 +251,16 @@
 
 ### Eurorack Standard: **Shrouded 2×5 IDC header** ✓
 
-- **Type**: 10-pin (2×5) shrouded header
-- **Orientation**: Keyed for correct insertion
+- **Type**: 10-pin (2×5) **keyed shrouded header** (mandatory)
+- **Orientation**: Keyed for correct insertion (prevents reverse polarity)
 - **Pins**: +12V, -12V, GND, +5V (optional), Gate/CV (unused)
 - **Cost**: $0.50-1.00
-- **Part**: Molex 70553 or equivalent
+- **Part**: Molex 70553 or equivalent (with keying tab)
+- **Cable**: Use keyed ribbon cable (red stripe = -12V)
 
 **Quantity needed**: 1 per module
+
+**Critical**: The shroud key prevents backwards insertion. Never use non-keyed headers - reverse polarity will destroy the module instantly.
 
 ---
 
@@ -330,15 +333,23 @@
 
 ## Protection Diodes
 
-### Schottky Diodes (ADC Input Clamps)
+### Schottky Diodes (Input and ADC Clamps)
 
-**Part**: BAT54S (dual Schottky in SOT-23)
-- **Type**: Dual series Schottky diode
-- **Voltage**: 30V
-- **Current**: 200mA
-- **Package**: SOT-23
-- **Cost**: $0.10
-- **Quantity**: 2 (one per ADC input channel)
+**Part**: 1N5819 Schottky Diode
+- **Type**: Discrete Schottky rectifier
+- **Voltage**: 40V reverse
+- **Current**: 1A forward
+- **Forward voltage**: ~0.3V @ 1A
+- **Package**: DO-41 (through-hole) or SMA (SMD)
+- **Cost**: ~$0.10 each
+- **Quantity**: 8 total (4 per input channel: 2 for input clamps, 2 for ADC clamps)
+
+**Alternative for ADC clamps**: BAT85 (smaller package, 30V, 200mA - adequate for ADC protection)
+
+**Why discrete diodes (not dual packages)?**
+- Need opposite polarities for bidirectional clamping
+- BAT54S is series configuration (won't work for our application)
+- Discrete diodes provide correct polarity for each clamp direction
 
 ### Reverse Polarity Protection (Power Input)
 
