@@ -79,10 +79,10 @@
 - **Cost**: $15-25
 - **Availability**: AliExpress, Amazon, Adafruit
 
-#### Specific Module Example
-- **Adafruit 4.3" TFT** (Product ID TBD)
+#### Specific Module Examples
 - **Waveshare 4.3" SPI LCD**
 - **Generic 4.3" ILI9486 modules** from AliExpress
+- Various Adafruit 4.3" TFT options available
 
 ### Recommendation: TBD - Need to verify specific part number
 
@@ -256,7 +256,7 @@
 - **Dropout**: ~1.2V
 - **Cost**: $0.50
 - **Pros**: Simple, cheap, low noise
-- **Cons**: Wastes power as heat (12V - 3.3V = 8.7V drop × 500mA = 4.35W!)
+- **Cons**: Wastes power as heat ((12V - 3.3V) × 0.5A = 4.35W!)
 
 **Problem**: Too much heat dissipation for this application ❌
 
@@ -321,7 +321,10 @@
 
 ### Resistors
 - **1% metal film**, standard E96 values
-- **Values needed**: 100kΩ (many), 620kΩ (2), 1kΩ (2+)
+- **Values needed**:
+  - **100kΩ**: Op-amp feedback and input resistors, voltage dividers (many)
+  - **620kΩ**: Voltage divider for input attenuation (2)
+  - **1kΩ**: LED current limiting and signal line protection (2+)
 - **Package**: 0805 SMD or 1/4W through-hole
 
 ### Capacitors
