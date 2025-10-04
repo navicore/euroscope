@@ -333,15 +333,23 @@
 
 ## Protection Diodes
 
-### Schottky Diodes (ADC Input Clamps)
+### Schottky Diodes (Input and ADC Clamps)
 
-**Part**: BAT54S (dual Schottky in SOT-23)
-- **Type**: Dual series Schottky diode
-- **Voltage**: 30V
-- **Current**: 200mA
-- **Package**: SOT-23
-- **Cost**: $0.10
-- **Quantity**: 2 (one per ADC input channel)
+**Part**: 1N5819 Schottky Diode
+- **Type**: Discrete Schottky rectifier
+- **Voltage**: 40V reverse
+- **Current**: 1A forward
+- **Forward voltage**: ~0.3V @ 1A
+- **Package**: DO-41 (through-hole) or SMA (SMD)
+- **Cost**: ~$0.10 each
+- **Quantity**: 8 total (4 per input channel: 2 for input clamps, 2 for ADC clamps)
+
+**Alternative for ADC clamps**: BAT85 (smaller package, 30V, 200mA - adequate for ADC protection)
+
+**Why discrete diodes (not dual packages)?**
+- Need opposite polarities for bidirectional clamping
+- BAT54S is series configuration (won't work for our application)
+- Discrete diodes provide correct polarity for each clamp direction
 
 ### Reverse Polarity Protection (Power Input)
 
