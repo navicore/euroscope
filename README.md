@@ -4,7 +4,7 @@
 
 A custom 2-channel oscilloscope module designed for audio and CV visualization with persistent settings.
 
-> **Project name**: EuroScope (repository/development name)
+> **Project name**: Trace Eurorack Module (repository/development name)
 > **Module name**: Trace
 
 ## Design Philosophy
