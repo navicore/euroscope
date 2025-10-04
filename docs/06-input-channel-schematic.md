@@ -283,12 +283,12 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 
 ## Next Steps
 
-- [ ] Draw complete schematic in KiCad or similar EDA tool
-- [ ] Add power supply section (buck regulator, Eurorack connector)
-- [ ] Add RP2040 section (MCU, crystal, flash, USB)
-- [ ] Add display interface (SPI connections)
-- [ ] Add encoder/button inputs (with debouncing)
-- [ ] Full design review before PCB layout
+1. Draw complete schematic in KiCad or similar EDA tool
+2. Add power supply section (buck regulator, Eurorack connector)
+3. Add RP2040 section (MCU, crystal, flash, USB)
+4. Add display interface (SPI connections)
+5. Add encoder/button inputs (with debouncing)
+6. Perform full design review before PCB layout
 
 ---
 
