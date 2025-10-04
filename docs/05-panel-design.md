@@ -158,7 +158,7 @@ With 3.5" display dimensions confirmed, **24HP is optimal**.
 
 **Module name**:
 - "TRACE" in top-right corner or above display
-- Font: Clean sans-serif
+- Font: Arial, Helvetica, or system sans-serif
 
 **Panel finish**:
 - Black matte (recommended - reduces glare on display)
