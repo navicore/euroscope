@@ -193,7 +193,7 @@ With 3.5" display dimensions confirmed, **24HP is optimal**.
 
 2. **Elecrow - 3.5 Inch 480×320 SPI TFT LCD Module with ILI9488 Driver**
    - Verified SPI support
-   - Link: [Elecrow](https://www.elecrow.com/3-5-inch-480-320-spi-tft-lcd-module-with-ili9488-driver.html)
+   - Product page: [https://www.elecrow.com/3-5-inch-480-320-spi-tft-lcd-module-with-ili9488-driver.html](https://www.elecrow.com/3-5-inch-480-320-spi-tft-lcd-module-with-ili9488-driver.html)
 
 3. **Generic "3.5 inch ILI9488 SPI" modules**
    - Widely available on AliExpress, eBay
