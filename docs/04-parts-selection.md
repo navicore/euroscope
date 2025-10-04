@@ -80,19 +80,39 @@
 - **Availability**: AliExpress, Amazon, Adafruit
 
 #### Specific Module Examples
-- **Waveshare 4.3" SPI LCD**
-- **Generic 4.3" ILI9486 modules** from AliExpress
-- Various Adafruit 4.3" TFT options available
 
-### Recommendation: TBD - Need to verify specific part number
+**Leading Candidate: Waveshare 4.3inch 480×272 Touch LCD (B)**
+- **Part**: 4.3inch 480×272 Touch LCD (B)
+- **Resolution**: 480×272 pixels
+- **Interface**: SPI + 24-bit RGB
+- **Touch**: Resistive (can be ignored/unused for our application)
+- **Link**: https://www.waveshare.com/4.3inch-480x272-touch-lcd-b.htm
+- **Status**: Physical dimensions need verification against 24HP panel constraints
+- **Concern**: Has touch screen (not preferred - we chose tactile controls). Touch can be left disconnected, but adds cost and complexity. Prefer true non-touch alternative if available.
+
+**Other Options**:
+- **Generic 4.3" ILI9486 SPI modules** from AliExpress
+- Various Adafruit 4.3" TFT options (need specific part numbers)
+
+### Recommendation: **Pending panel design** ⚠️
 
 **Selection criteria**:
-- Verify dimensions fit 24HP panel (screen active area < 110mm wide)
-- Check mounting hole spacing
-- Confirm SPI compatibility with RP2040
-- Read reviews for Rust embedded-graphics compatibility
+- Physical PCB dimensions must fit 24HP panel (active area < 110mm wide)
+- Mounting hole spacing must align with panel design
+- SPI interface compatible with RP2040
+- Driver support in Rust embedded-graphics ecosystem
+- Non-touch or touch-optional (we're using encoders/buttons)
 
-**TODO**: Find specific part number with known-good dimensions
+**Critical blocker**: Cannot finalize display selection until panel layout is designed. Display dimensions drive panel cutout and component placement.
+
+**Next steps**:
+1. Design panel layout (see panel design decisions doc)
+2. Measure available space for display
+3. Research non-touch 4.3" SPI displays (preferred)
+4. Verify Waveshare 4.3" or find alternative that fits
+5. Order sample for physical fit verification
+
+**Note**: Display selection deferred until panel design phase. Paying for unused touch capability is acceptable if no better option exists, but non-touch display preferred for cost and simplicity.
 
 ---
 
