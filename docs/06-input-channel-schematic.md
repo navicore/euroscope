@@ -206,7 +206,7 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 - Uses U1D (pin 12-13-14) for passthrough buffer
 - ADC input: RP2040 GPIO27 (ADC1)
 
-**One TL074 per channel = 2 ICs total**
+**One TL074 handles both channels (4 op-amps total, 1 IC)**
 
 **Shared components**:
 - +3.3V offset reference (R3, R4, C1) can be shared between channels
