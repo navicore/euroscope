@@ -1,6 +1,11 @@
-# EuroScope - DIY 24HP Eurorack Oscilloscope
+# Trace
 
-A custom 2-channel Eurorack oscilloscope module designed for audio and CV visualization with persistent settings.
+**A DIY 24HP Eurorack Oscilloscope**
+
+A custom 2-channel oscilloscope module designed for audio and CV visualization with persistent settings.
+
+> **Project name**: EuroScope (repository/development name)
+> **Module name**: Trace
 
 ## Design Philosophy
 
