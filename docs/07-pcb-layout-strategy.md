@@ -396,9 +396,12 @@ Divide PCB into logical sections to minimize crosstalk:
 - Thermal pad: Connect to ground with vias
 - Solder paste stencil recommended (or careful hand-paste application)
 
-**SMA Diodes**:
-- Pad size similar to 0805
-- Polarized - mark cathode clearly on silkscreen
+**SMA Diodes (DO-214AC package)**:
+- **Dedicated land pattern** (not same as 0805)
+- Pad dimensions: 2.0-2.3mm length × 1.5mm width (each pad)
+- Overall pad-to-pad span: 4.6-5.3mm
+- Body size: ~2.5mm × 1.3mm × 2.3mm height
+- Polarized - mark cathode clearly on silkscreen (band end)
 
 ### Hand-Assembly Tips (Documented on Silkscreen)
 
