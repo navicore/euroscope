@@ -85,10 +85,15 @@ Input Jack → Protection → Voltage Divider → Buffer → ADC (0-3.3V)
 3. **Protection**: Safe with any Eurorack signal
 4. **Accuracy**: 1% resistors for divider precision
 
-## Next Steps
+## Design Task List
 
-- [ ] Calculate exact resistor divider values
-- [ ] Select specific op-amp part numbers
-- [ ] Draw schematic for one channel
-- [ ] Validate voltage scaling math
-- [ ] Consider AC coupling option (future enhancement)
+- [ ] Calculate exact resistor divider values (see 03-resistor-calculations.md)
+- [ ] Select specific parts (op-amps, display, encoders, connectors)
+- [ ] Sketch out schematic for one input channel
+- [ ] Discuss PCB layout strategy
+- [ ] Plan firmware architecture
+- [ ] Panel design decisions
+
+## Future Enhancements
+
+- [ ] Consider AC coupling option
