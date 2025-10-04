@@ -251,13 +251,16 @@
 
 ### Eurorack Standard: **Shrouded 2×5 IDC header** ✓
 
-- **Type**: 10-pin (2×5) shrouded header
-- **Orientation**: Keyed for correct insertion
+- **Type**: 10-pin (2×5) **keyed shrouded header** (mandatory)
+- **Orientation**: Keyed for correct insertion (prevents reverse polarity)
 - **Pins**: +12V, -12V, GND, +5V (optional), Gate/CV (unused)
 - **Cost**: $0.50-1.00
-- **Part**: Molex 70553 or equivalent
+- **Part**: Molex 70553 or equivalent (with keying tab)
+- **Cable**: Use keyed ribbon cable (red stripe = -12V)
 
 **Quantity needed**: 1 per module
+
+**Critical**: The shroud key prevents backwards insertion. Never use non-keyed headers - reverse polarity will destroy the module instantly.
 
 ---
 
