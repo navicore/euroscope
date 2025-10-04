@@ -276,7 +276,7 @@
 - **Dropout**: ~1.2V
 - **Cost**: $0.50
 - **Pros**: Simple, cheap, low noise
-- **Cons**: Wastes power as heat ((12V - 3.3V) × 0.5A = 4.35W!)
+- **Cons**: Wastes power as heat ((12V - 3.3V) × >500mA ≈ >4.35W!)
 
 **Problem**: Too much heat dissipation for this application ❌
 
