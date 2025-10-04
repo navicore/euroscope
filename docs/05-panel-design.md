@@ -189,7 +189,7 @@ With 3.5" display dimensions confirmed, **24HP is optimal**.
    - 4-wire SPI interface
    - ILI9488 driver chip
    - 3.3V~5V compatible
-   - Link: [Amazon](https://www.amazon.com/3-5inch-display-interface-ili9488-electronic/dp/b08c7npqzr)
+   - Link: [Amazon](https://www.amazon.com/3-5inch-display-interface-ili9488-electronic/dp/B08C7NPQZR)
 
 2. **Elecrow - 3.5 Inch 480×320 SPI TFT LCD Module with ILI9488 Driver**
    - Verified SPI support
