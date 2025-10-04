@@ -260,6 +260,12 @@
 
 **Problem**: Too much heat dissipation for this application ❌
 
+**Thermal analysis**:
+- LM1117 in typical small package (SOT-223/TO-220) can handle ~1W without heatsink
+- 4.35W dissipation would require **large heatsink** (impractical in Eurorack)
+- Even with heatsink: wasteful, generates heat in rack, loads +12V bus unnecessarily
+- **Decision**: Linear regulators are not suitable for this power level
+
 #### AMS1117-3.3 (LDO)
 - Similar to LM1117, same heat problem ❌
 
@@ -283,10 +289,20 @@
 ### Recommendation: **AP63203 or similar buck regulator** ✓
 
 **Rationale**:
-- Power consumption: 500mA × 3.3V = 1.65W
-- With 85% efficiency: draws ~160mA from +12V bus (acceptable)
-- Linear regulator would dissipate 4W+ as heat (not acceptable)
-- Worth the extra components for efficiency
+- Power consumption: 500mA × 3.3V = 1.65W output
+- With 85% efficiency: input power ~1.94W, dissipates only **~0.3W as heat**
+- Draws ~160mA from +12V bus (acceptable for Eurorack)
+- No heatsink required
+- More components than LDO, but necessary for thermal management
+
+**Comparison to LDO approach**:
+| Parameter | LDO (LM1117) | Buck (AP63203) |
+|-----------|--------------|----------------|
+| Heat dissipated | 4.35W | ~0.3W |
+| Heatsink needed | Large (impractical) | None |
+| +12V current | 500mA | 160mA |
+| Component count | Low | Medium |
+| **Verdict** | ❌ Not feasible | ✓ Correct choice |
 
 **TODO**: Select specific part and design buck circuit
 
