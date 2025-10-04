@@ -99,7 +99,7 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 **Offset Voltage Reference** (+1.65V from +3.3V rail):
 - **R3**: 100kΩ (from +3.3V regulated supply)
 - **R4**: 100kΩ (to GND)
-- **Voffset**: 3.3V × (100k ÷ 200k) = **1.65V**
+- **Voffset**: 3.3V × (100k ÷ (100k + 100k)) = 3.3V × 0.5 = **1.65V**
 
 **C1: 100nF ceramic capacitor** (bypass cap on +1.65V reference node)
 - Stabilizes offset voltage
