@@ -218,8 +218,8 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 
 | Scenario | Input Voltage | Result | Protection Active |
 |----------|---------------|--------|-------------------|
-| Normal audio | ±5V | Scales to 0.9-2.4V @ ADC | None (normal operation) |
-| Hot CV | ±10V | Scales to 0.3-3.0V @ ADC | None (within range) |
+| Normal audio | ±5V | (5V ÷ 7.2) + 1.65V = 2.34V @ ADC | None (normal operation) |
+| Hot CV | ±10V | (10V ÷ 7.2) + 1.65V = 3.04V @ ADC | None (within range) |
 | Over-voltage | +15V | Clamped to +12.3V by D1 | R_PROT + D1 |
 | Reverse voltage | -15V | Clamped to -12.3V by D2 | R_PROT + D2 |
 | Op-amp fault | U1A outputs +12V | ADC sees 3.3V (clamped by D3) | R7 + D3 |
