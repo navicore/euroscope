@@ -388,7 +388,7 @@ J_IN2 (tip) ────────────┴──> Ch2 input
 ### ICs
 - **U_REG**: AP63203WU-7 (TSOT-26) or LMR33630ADDAR (SO PowerPAD-8) — qty 1
 - **U1**: TL074IDR (SOIC-14) — qty 1 (Ch1 uses A/B, Ch2 shares same IC or use 2nd TL074)
-- **U2**: TL074IDR (SOIC-14) — qty 1 (Ch2 uses C/D) — OR share U1 if pin count allows
+- **U2**: TL074IDR (SOIC-14) — qty 0 or 1 (optional; Ch2 uses C/D) — only needed if not sharing U1
 - **MCU**: Raspberry Pi Pico (RP2040 module) — qty 1
 
 **Note**: 1× TL074 can handle both channels (4 op-amps: Ch1 A/B, Ch2 C/D). Use 2× TL074 if layout cleaner.
