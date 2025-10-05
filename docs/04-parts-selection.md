@@ -335,16 +335,24 @@
 
 ### Schottky Diodes (Input and ADC Clamps)
 
-**Part**: 1N5819 Schottky Diode
-- **Type**: Discrete Schottky rectifier
-- **Voltage**: 40V reverse
+**Part**: Schottky Diode - Multiple Options
+
+**SMD Option (Recommended)**:
+- **Part Number**: SS14 or SS16
+- **Package**: SMA (DO-214AC)
+- **Voltage**: SS14: 40V, SS16: 60V
 - **Current**: 1A forward
-- **Forward voltage**: ~0.3V @ 1A
-- **Package**: DO-41 (through-hole) or SMA (SMD)
+- **Forward voltage**: ~0.4V @ 1A
 - **Cost**: ~$0.10 each
 - **Quantity**: 8 total (4 per input channel: 2 for input clamps, 2 for ADC clamps)
 
-**Alternative for ADC clamps**: BAT85 (smaller package, 30V, 200mA - adequate for ADC protection)
+**Through-Hole Option**:
+- **Part Number**: 1N5819
+- **Package**: DO-41 (axial lead)
+- **Specs**: 40V, 1A, ~0.3V forward drop
+- **Use if**: Prefer through-hole assembly
+
+**Note**: Do not specify "1N5819 SMA" - this creates BOM ambiguity. Use SS14/SS16 for SMD.
 
 **Why discrete diodes (not dual packages)?**
 - Need opposite polarities for bidirectional clamping
