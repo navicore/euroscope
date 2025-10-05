@@ -389,7 +389,6 @@ J_IN2 (tip) ────────────┴──> Ch2 input
 
 **Note**: Standard 10-pin (2×5) Eurorack does NOT have explicit -12V pins. -12V comes from a **2×8 (16-pin)** connector.
 
-**WAIT - Let me verify Eurorack power standard:**
 
 **Correct Eurorack 10-pin (2×5) power connector pinout:**
 ```
