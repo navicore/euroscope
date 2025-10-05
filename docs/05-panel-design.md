@@ -51,26 +51,36 @@ After thorough research, we've selected the **3.5" 480×320 ILI9488/ILI9486 SPI 
 
 With 3.5" display dimensions confirmed, **24HP is optimal**.
 
-### Layout: Option B (Side-by-Side) ✓
+### Layout: Side-by-Side with Per-Channel Controls ✓
 
 ```
 ┌─────────────────────────┐  121.92mm (24HP)
-│  ┌──────────┐  [E1]     │
-│  │          │  [E2]     │  ← Display (left)
-│  │ DISPLAY  │           │     Encoders (right)
-│  │  3.5"    │  [B1]     │     Buttons (right)
-│  │ 480×320  │  [B2]     │
+│  TRACE                  │
+│                         │
+│  ┌──────────┐           │
+│  │          │   [E1] ●  │  ← Ch1: Time/div encoder, Run/Stop toggle + LED
+│  │ DISPLAY  │   ⬍─⬍    │
+│  │  3.5"    │           │
+│  │ 480×320  │   [E2] ●  │  ← Ch2: Volts/div encoder, Run/Stop toggle + LED
+│  │          │   ⬍─⬍    │
 │  └──────────┘           │
 │                         │
 │  ○IN1  ○IN2  ○OUT1 ○OUT2│  ← Jacks (bottom)
 └─────────────────────────┘
 ```
 
-**Rationale for Option B**:
+**Key Design Decision: Independent Per-Channel Freeze**
+- Each channel has its own Run/Stop toggle switch
+- Dual-color LED (red/green) indicates state per channel
+- **Use case**: Freeze Ch1 as reference, tune Ch2 to match waveform shape
+- **Tactile quality**: Toggle switches preferred over buttons (more precise, better feel)
+
+**Rationale for Layout**:
 - **Ergonomic**: Controls next to display (look at waveform while adjusting)
 - **Scope-like**: Resembles bench scope layout
 - **Efficient**: Maximizes display width for time-axis viewing
 - **Natural hand position**: Left hand near display, right hand on controls
+- **Per-channel control**: Each channel has dedicated freeze control for independent operation
 
 ---
 
@@ -89,17 +99,19 @@ With 3.5" display dimensions confirmed, **24HP is optimal**.
 - **Left margin**: 3mm from panel edge
 - **Display center**: ~50mm from left edge
 
-#### Encoders (Right Side, Upper)
-- **Encoder 1** (Time/div): 75mm from left edge
-- **Encoder 2** (Volts/div): 100mm from left edge
-- **Vertical position**: ~40mm from top
-- **Spacing**: 25mm center-to-center (allows 20-25mm knobs)
+#### Channel 1 Controls (Right Side, Upper)
+- **Encoder 1** (Time/div): 85mm from left edge
+- **Toggle 1** (Ch1 Run/Stop): 85mm from left edge, ~55mm from top
+- **LED 1** (dual-color red/green): Adjacent to toggle (3mm offset)
+- **Vertical spacing**: ~15mm between encoder and toggle
 
-#### Buttons (Right Side, Lower)
-- **Button 1** (Trigger): 75mm from left edge
-- **Button 2** (Run/Stop): 100mm from left edge
-- **Vertical position**: ~75mm from top
-- **Spacing**: 25mm center-to-center
+#### Channel 2 Controls (Right Side, Lower)
+- **Encoder 2** (Volts/div): 85mm from left edge, ~75mm from top
+- **Toggle 2** (Ch2 Run/Stop): 85mm from left edge, ~90mm from top
+- **LED 2** (dual-color red/green): Adjacent to toggle (3mm offset)
+- **Vertical spacing**: ~15mm between encoder and toggle
+
+**Control group spacing**: ~20mm vertical gap between Ch1 and Ch2 control groups
 
 #### Jacks (Bottom Row)
 - **IN1**: 20mm from left edge
@@ -150,20 +162,20 @@ With 3.5" display dimensions confirmed, **24HP is optimal**.
 - OUT 1
 - OUT 2
 
-**Control labels** (near encoders/buttons):
-- TIME (encoder 1)
-- VOLTS (encoder 2)
-- TRIG (button 1)
-- RUN (button 2)
+**Control labels** (near encoders/toggles):
+- CH1 / TIME (encoder 1 + toggle 1)
+- CH2 / VOLTS (encoder 2 + toggle 2)
+- LED states: Green = Running, Red = Stopped (frozen)
 
 **Module name**:
 - "TRACE" in top-right corner or above display
 - Font: Arial, Helvetica, or system sans-serif
 
 **Panel finish**:
-- Black matte (recommended - reduces glare on display)
-- Brushed aluminum (alternative)
+- **Silver/brushed aluminum** (recommended - matches existing rack aesthetic)
+- Burgundy knobs for encoders (distinctive accent color)
 - White text/labels
+- Matte or bead-blasted surface texture (reduces fingerprints)
 
 ---
 
@@ -230,11 +242,13 @@ With 3.5" display dimensions confirmed, **24HP is optimal**.
 
 ---
 
-## Open Questions (Minor)
+## Aesthetic Decisions ✓
 
-- [ ] Encoder knob style (Davies clone, Rogan, custom?)
-- [ ] Button LED colors (Run/Stop: green/red? Or single color?)
-- [ ] Panel finish preference (matte black vs brushed aluminum)
-- [ ] Module name typography (font choice)
+- [x] **Panel finish**: Silver/brushed aluminum (matches existing rack: Random*Source, Intellijel, Joranalogue)
+- [x] **Knob color**: Burgundy (distinctive accent, not copying other manufacturers)
+- [x] **Control type**: Toggle switches (not buttons - better tactile quality)
+- [x] **LED indicators**: Dual-color (red/green) per channel for Run/Stop state
+- [ ] Module name typography (font choice - deferred)
+- [ ] Encoder knob style (Davies clone, Rogan, custom? - deferred)
 
-**Note**: These are aesthetic decisions that don't block technical progress.
+**Design Philosophy**: Utilitarian silver aesthetic with burgundy accent, quality tactile controls (no cheap buttons)

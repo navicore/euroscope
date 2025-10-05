@@ -185,44 +185,46 @@
 
 ---
 
-## Pushbuttons
+## Run/Stop Controls (Per Channel)
 
-### Requirements
-- Momentary SPST
+### Requirements (Updated)
+- Per-channel freeze control (independent operation)
+- Clear visual state indication (running vs stopped)
+- Quality tactile feel (not cheap buttons)
 - Panel mount
-- LED optional (could be useful for Run/Stop indicator)
-- Tactile click
 
-### Candidates
+### Design Decision: Toggle Switches + Dual-Color LEDs ✓
 
-#### Standard 6mm Tactile Switch (PCB mount)
-- **Mounting**: PCB mount, actuator extends through panel hole
-- **Cost**: $0.10-0.50
-- **Pros**: Cheap, tiny, standard
-- **Cons**: No LED, requires precise panel alignment
+**Rationale for toggles over buttons**:
+- **Tactile quality**: Decisive mechanical action, no cheap plastic feel
+- **Cannot accidentally bump**: Important during live performance
+- **Visual state**: Physical toggle position + LED confirms state
+- **Proven in quality modules**: Intellijel, Random*Source, Doepfer use toggles for critical functions
 
-#### Panel Mount Momentary Pushbutton (e.g., E-Switch TL1105)
-- **Mounting**: Snap-in panel mount
-- **Cost**: $1-2
-- **Pros**: Easy panel mounting, good feel
-- **Cons**: Larger footprint
+### Recommendation: **SPDT Toggle + Separate Dual-Color LED** ✓
 
-#### Illuminated Panel Mount Pushbutton
-- **Mounting**: Panel mount, threaded or snap-in
-- **LED**: Integrated (useful for status indication)
-- **Cost**: $2-5
-- **Pros**: Status feedback, professional look
-- **Cons**: More expensive, more wiring
+#### Toggle Switch
+- **Type**: SPDT panel mount toggle (2-position)
+- **Candidates**:
+  - C&K 7101 series (~$2-3)
+  - E-Switch 100SP series (~$2-3)
+  - Any quality SPDT with 6mm threaded bushing
+- **Mounting**: Panel mount, threaded bushing + nut
+- **Cost**: $2-3 each
 
-### Recommendation: **Illuminated panel mount buttons** ✓
+#### Dual-Color LED (Status Indicator)
+- **Type**: Common cathode red/green LED (5mm)
+- **Position**: Adjacent to toggle (3mm offset)
+- **States**:
+  - **Green** = Channel running (live signal)
+  - **Red** = Channel stopped (frozen waveform)
+- **Cost**: $0.50 each
+- **Part**: Standard 5mm dual-color LED or discrete red/green LEDs
 
-**Rationale**:
-- Run/Stop button benefits from LED (red = stopped, green = running)
-- Trigger button could show trigger status
-- Professional look for a scope module
-- Worth the extra $6-10 for UX improvement
+**Total cost per channel**: ~$3
+**Quantity needed**: 2 toggles + 2 dual-color LEDs (one set per channel)
 
-**Quantity needed**: 2-3 buttons
+**Alternative (more expensive)**: Illuminated toggle switches with built-in dual LED (~$8-12 each, e.g., NKK M2022 series). Standard toggle + separate LED is more cost-effective and equally functional.
 
 ---
 
@@ -397,20 +399,22 @@
 - [ ] Create complete BOM with part numbers and sources
 - [ ] Estimate total cost
 
-## Cost Estimate (Rough)
+## Cost Estimate (Updated)
 
 | Component | Qty | Unit Cost | Total |
 |-----------|-----|-----------|-------|
 | TL074 op-amp | 2 | $0.50 | $1.00 |
 | RP2040 Pico | 1 | $4.00 | $4.00 |
-| 4.3" Display | 1 | $20.00 | $20.00 |
-| Encoders | 2 | $3.00 | $6.00 |
-| Buttons (LED) | 3 | $3.00 | $9.00 |
-| Jacks | 4 | $1.00 | $4.00 |
-| Buck regulator | 1 | $2.00 | $2.00 |
-| Passives/misc | - | - | $5.00 |
-| PCB | 1 | $10-20 | $15.00 |
-| Panel | 1 | $10-30 | $20.00 |
-| **Total** | | | **~$86** |
+| 3.5" Display (ILI9488) | 1 | $12.00 | $12.00 |
+| Encoders (Bourns PEC11) | 2 | $3.00 | $6.00 |
+| Toggle switches (SPDT) | 2 | $2.50 | $5.00 |
+| Dual-color LEDs | 2 | $0.50 | $1.00 |
+| Knobs (burgundy) | 2 | $2.00 | $4.00 |
+| Jacks (Thonkiconn) | 4 | $1.00 | $4.00 |
+| Buck regulator (AP63203) | 1 | $2.00 | $2.00 |
+| Passives/diodes/misc | - | - | $5.00 |
+| PCB (2-layer, SMD) | 1 | $10-20 | $15.00 |
+| Panel (aluminum, brushed) | 1 | $20-40 | $30.00 |
+| **Total** | | | **~$89** |
 
 **Note**: Excludes tools, shipping, mistakes/revisions. Double for prototype safety margin → **~$150-200** realistic first build cost.
