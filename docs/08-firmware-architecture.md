@@ -281,7 +281,7 @@ fn map_adc_to_screen(
 ) -> i32 {
     // Guard against division by zero
     if screen_height == 0 {
-        return 0;
+        panic!("map_adc_to_screen: screen_height must be greater than 0");
     }
 
     // ADC: 0 = 0V, 4095 = 3.3V (after our offset circuit: 0.06V-3.4V range)
