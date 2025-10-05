@@ -1,7 +1,7 @@
 # Parts Sourcing Checklist
 
 ## Purpose
-Verify availability and pricing at professional distributors (Newark, Mouser, Digikey) for Trace module components.
+Verify availability and pricing at professional distributors (Newark, Mouser, Digi-Key) for Trace module components.
 
 ---
 
