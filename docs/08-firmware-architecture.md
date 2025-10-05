@@ -279,6 +279,11 @@ fn map_adc_to_screen(
     volts_div: VoltsDiv,
     screen_height: u32,
 ) -> i32 {
+    // Guard against division by zero
+    if screen_height == 0 {
+        return 0;
+    }
+
     // ADC: 0 = 0V, 4095 = 3.3V (after our offset circuit: 0.06V-3.4V range)
     // Center screen at 1.65V (ADC ~2048)
 
@@ -291,11 +296,7 @@ fn map_adc_to_screen(
     let y_offset = (offset_from_center as f32 * pixels_per_adc) as i32;
     let y = (screen_height / 2) as i32 - y_offset; // Invert Y (screen grows down)
 
-    if screen_height == 0 {
-        0
-    } else {
-        y.clamp(0, screen_height as i32 - 1)
-    }
+    y.clamp(0, screen_height as i32 - 1)
 }
 ```
 
