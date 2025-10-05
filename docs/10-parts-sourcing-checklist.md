@@ -41,16 +41,17 @@ Verify availability and pricing at professional distributors (Newark, Mouser, Di
 
 ### Voltage Regulator (Buck Converter)
 
-- [ ] **AP63203WU-7** (SOIC-8)
+- [ ] **AP63203WU-7** (TSOT-26)
   - Manufacturer: Diodes Inc
   - Output: 3.3V, 2A synchronous buck
-  - Package: SOIC-8 or similar
+  - Package: **TSOT-26 (TSOT-23-6 style)** — verify footprint, not SOIC-8
   - Newark part number: _____________
   - Price: _____________
 
-- [ ] **LMR33630ADDAR** (SOIC-8) - Alternative
+- [ ] **LMR33630ADDAR** (SO PowerPAD-8) - Alternative
   - Manufacturer: Texas Instruments
   - Output: 3.3V, 3A synchronous buck
+  - Package: **SO PowerPAD-8 (DDA)** — not standard SOIC-8; requires exposed thermal pad
   - Newark part number: _____________
   - Price: _____________
 
@@ -269,7 +270,7 @@ Standard values needed (verify availability in bulk):
 ## Cost Tracking
 
 | Category | Estimated Cost | Actual Cost (Newark) | Notes |
-|----------|---------------|---------------------|-------|
+|----------|----------------|----------------------|-------|
 | ICs (op-amps, MCU, regulator) | $7 | | |
 | Diodes (8 total) | $3 | | |
 | Encoders (2) | $6 | | |
@@ -309,6 +310,6 @@ Standard values needed (verify availability in bulk):
 
 - **Newark**: https://www.newark.com
 - **Mouser**: https://www.mouser.com (backup for Newark out-of-stock)
-- **Digikey**: https://www.digikey.com (backup)
+- **Digi-Key**: https://www.digikey.com (backup)
 - **Thonk**: https://www.thonk.co.uk (Eurorack specialist - jacks, knobs)
 - **Modular Addict**: https://modularaddict.com (Eurorack alternative to Thonk)
