@@ -533,7 +533,7 @@ After placing symbols, assign footprints:
 
 - **KiCad Documentation**: https://docs.kicad.org/
 - **Schematic Editor Manual**: https://docs.kicad.org/7.0/en/eeschema/eeschema.html
-- **Eurorack DIY Forums**: https://www.muffwiggler.com/forum/viewforum.php?f=17
+- **ModWiggler DIY Forum**: https://modwiggler.com/forum/viewforum.php?f=17
 - **Design Reference**: `docs/11-schematic-design-plan.md`
 
 ---
