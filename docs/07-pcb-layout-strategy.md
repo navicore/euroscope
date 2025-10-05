@@ -320,7 +320,8 @@ Divide PCB into logical sections to minimize crosstalk:
 - Low-ESR ceramics (X5R or X7R dielectric)
 
 **RP2040** (critical - has multiple power domains):
-- **Every power pin**: 100nF ceramic (0805) within 5mm
+- **Every power pin**: 100nF ceramic (0805) within 5mm  
+  - *Note*: 0805 is chosen for hand-assembly, but for improved high-frequency decoupling (above tens of MHz), consider adding a 100nF or 10nF 0402 capacitor as close as possible to the core and USB power pins in future revisions. Using only 0805 increases ESL and may reduce effectiveness for very high-speed noise.
 - VREG input: 1µF ceramic
 - VREG output: 1µF ceramic
 - USB power: 1µF + 100nF ceramic
