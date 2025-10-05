@@ -299,7 +299,7 @@ Standard values needed (verify availability in bulk):
 
 ## Notes
 
-- **Minimum order quantities (MOQ)**: Some parts may have MOQ at Newark. If problematic, use Mouser or Digikey (similar pricing, different stock).
+- **Minimum order quantities (MOQ)**: Some parts may have MOQ at Newark. If problematic, use Mouser or Digi-Key (similar pricing, different stock).
 - **Lead times**: Note any parts with >2 week lead time - may need alternatives
 - **Substitutions**: If exact part unavailable, find equivalent with same footprint/specs
 - **Stock alerts**: Set up stock notifications for critical low-stock parts
