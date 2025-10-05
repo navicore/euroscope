@@ -201,7 +201,7 @@ Offset ──────────┘         │      │
 **SPI Display Interface:**
 - GPIO10 (SPI1_SCK) → Display SCK
 - GPIO11 (SPI1_TX / MOSI) → Display MOSI
-- GPIO12 (SPI1_RX) → (unused for display, but available)
+- GPIO12 (SPI1_RX) → (not connected; available for future use)
 - GPIO13 → Display CS (chip select)
 - GPIO14 → Display DC (data/command)
 - GPIO15 → Display RST (reset, optional)
