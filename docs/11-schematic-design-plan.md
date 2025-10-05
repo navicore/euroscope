@@ -221,12 +221,6 @@ Offset ──────────┘         │      │
 **Toggle Switches & LEDs:**
 - GPIO22 → Toggle 1 (Ch1 Run/Stop) read
 - GPIO23 → Toggle 2 (Ch2 Run/Stop) read
-- GPIO24 → LED 1 Red control
-- GPIO25 → LED 1 Green control
-- GPIO26 (already used for ADC0) — NOTE: conflict! Need to reassign LEDs
-- GPIO27 (already used for ADC1) — NOTE: conflict!
-
-**CORRECTED LED assignments:**
 - GPIO6 → LED 1 Red control
 - GPIO7 → LED 1 Green control
 - GPIO8 → LED 2 Red control
@@ -372,9 +366,9 @@ J_IN2 (tip) ────────────┴──> Ch2 input
 ```
 
 **Connections:**
-- -12V (pins 1, 11) → Buck regulator input + TL074 V-
-- GND (pins 2, 3, 9, 10) → System ground
-- +12V (implied, not shown) → Wait, Eurorack is:
+- -12V (pin 1) → Buck regulator input + TL074 V-
+- GND (pins 2, 5, 6, 7) → System ground
+- +12V (pins 8, 9) → Buck regulator input + TL074 V+
 
 **CORRECTED Eurorack pinout:**
 ```
@@ -444,8 +438,8 @@ J_IN2 (tip) ────────────┴──> Ch2 input
 - R_PROT: 1kΩ — qty 2
 - R1: 620kΩ — qty 2
 - R2: 100kΩ — qty 2
-- R3: 91kΩ — qty 2 (or share 1 offset reference)
-- R4: 100kΩ — qty 2 (or share)
+- R3: 91kΩ — qty 1 (shared offset reference)
+- R4: 100kΩ — qty 1 (shared offset reference)
 - R5: 100kΩ — qty 2
 - R6: 100kΩ — qty 2
 - R7: 1kΩ — qty 2
