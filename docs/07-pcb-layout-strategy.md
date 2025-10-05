@@ -306,7 +306,7 @@ Divide PCB into logical sections to minimize crosstalk:
 **Crystal** (12MHz for RP2040):
 - **Critical**: Keep traces <5mm from RP2040 to crystal
 - Guard with ground pour (ground "fence" around crystal traces)
-- Load capacitors (22pF) right at crystal pins
+- Load capacitors: Calculate using C1 = C2 ≈ 2 × (CL - Cstray), where CL is from the crystal datasheet (commonly 8–12pF) and Cstray is estimated PCB stray capacitance (typically 2–5pF). This usually results in 12–18pF capacitors. Do not hard-code 22pF; verify with your crystal's datasheet.
 
 ---
 
