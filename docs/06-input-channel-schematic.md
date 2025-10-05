@@ -41,10 +41,10 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 - Limits fault current to safe levels
 
 **D1, D2: Discrete Schottky Clamp Diodes**
-- Part: **1N5819** Schottky diode (DO-41 or SMA package)
+- Part: **SS14** (SMA/DO-214AC SMD) or **1N5819** (DO-41 through-hole)
 - D1: Anode to signal input, Cathode to +12V rail (clamps high)
 - D2: Cathode to signal input, Anode to -12V rail (clamps low)
-- Forward voltage: ~0.3V (Schottky)
+- Forward voltage: ~0.3-0.4V (Schottky)
 - Clamps input to +12.3V / -12.3V (safe overvoltage range)
 
 **Why discrete diodes (not dual packages)?**
@@ -142,7 +142,7 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 - Works with ADC input clamp diodes (internal to RP2040)
 
 **D3, D4: Discrete Schottky Clamp Diodes at ADC Input**
-- Part: **1N5819** or **BAT85** Schottky diode
+- Part: **SS14** (SMA SMD), **1N5819** (DO-41 TH), or **BAT85** (SOD-123 SMD)
 - D3: Anode to ADC input, Cathode to +3.3V (clamps high)
 - D4: Cathode to ADC input, Anode to GND (clamps low - **backup protection**)
 - Final protection if op-amp output somehow exceeds 0-3.3V range
@@ -205,10 +205,10 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 - C1: 100nF ceramic (offset reference bypass)
 
 ### Diodes (discrete Schottky)
-- **D1: 1N5819** Schottky (input clamp to +12V) ← Changed from BAT54S
-- **D2: 1N5819** Schottky (input clamp to -12V) ← Changed from BAT54S
-- **D3: 1N5819 or BAT85** Schottky (ADC clamp to +3.3V) ← Changed from BAT54S
-- **D4: 1N5819 or BAT85** Schottky (ADC clamp to GND) ← Changed from BAT54S
+- **D1: SS14 (SMD)** or **1N5819 (TH)** Schottky (input clamp to +12V) ← Changed from BAT54S
+- **D2: SS14 (SMD)** or **1N5819 (TH)** Schottky (input clamp to -12V) ← Changed from BAT54S
+- **D3: SS14/1N5819/BAT85** Schottky (ADC clamp to +3.3V) ← Changed from BAT54S
+- **D4: SS14/1N5819/BAT85** Schottky (ADC clamp to GND) ← Changed from BAT54S
 
 ### ICs
 - U1A: TL074 op-amp (offset/buffer stage)
@@ -295,13 +295,23 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
           |___|
 ```
 
-**1N5819 / BAT85 Schottky Diode**:
-- Standard two-terminal diode
+**Schottky Diode Options**:
+
+**SS14/SS16 (SMA/DO-214AC SMD)**:
 - Mark indicates cathode (line/band on package)
 - Anode: Unmarked end
 - Cathode: Marked end (line/band)
-- Forward voltage: ~0.3V (Schottky)
-- DO-41 (through-hole) or SMA/SOD-123 (SMD) packages available
+- Forward voltage: ~0.4V @ 1A
+- Package: 4.5-5.3mm × 2.5-2.8mm × 2.0-2.3mm
+
+**1N5819 (DO-41 through-hole)**:
+- Axial package with cathode band
+- Forward voltage: ~0.3V @ 1A
+- Use if preferring through-hole assembly
+
+**BAT85 (SOD-123 SMD)**:
+- Smaller SMD option (200mA rating)
+- Adequate for ADC protection only
 
 **Connection reference**:
 - To clamp HIGH: Anode to signal, Cathode to positive rail
@@ -331,13 +341,13 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 **Cost per channel**: ~$2.50
 - TL074 (half): $0.25
 - Resistors (8×): $0.80
-- Diodes (4× 1N5819): $0.40
+- Diodes (4× SS14 or 1N5819): $0.40
 - Caps: $0.10
 - Jacks (2×): $1.00
 
 **Component changes from initial design**:
 - ❌ Removed BAT54S (wrong configuration for bidirectional clamp)
-- ✓ Using discrete 1N5819 Schottky diodes instead
+- ✓ Using discrete Schottky diodes: SS14 (SMD) or 1N5819 (through-hole)
 - ✓ Changed R3: 100kΩ → 91kΩ (ensures positive voltage with tolerances)
 
 **This is the heart of the module** - get this right and everything else follows.

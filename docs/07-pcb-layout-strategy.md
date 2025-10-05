@@ -57,7 +57,8 @@
 - **Op-amps (TL074)**: SOIC-14 (1.27mm pitch) - very hand-solderable
 - **RP2040**: QFN-56 (0.4mm pitch) - requires hot air station
 - **Buck regulator**: SOIC-8 or SOIC-8-EP (exposed pad)
-- **Diodes (1N5819)**: SMA package (SMD equivalent of DO-41)
+- **Schottky Diodes**: SS14 or SS16 (SMA/DO-214AC package) - SMD Schottky
+  - Alternative: 1N5819 (DO-41 through-hole) if preferring through-hole
 
 **Why SMD**:
 - More robust (better vibration resistance, no lead breakage)
@@ -396,11 +397,12 @@ Divide PCB into logical sections to minimize crosstalk:
 - Thermal pad: Connect to ground with vias
 - Solder paste stencil recommended (or careful hand-paste application)
 
-**SMA Diodes (DO-214AC package)**:
+**SMA Diodes (DO-214AC package) - SS14/SS16**:
 - **Dedicated land pattern** (not same as 0805)
 - Pad dimensions: 2.0-2.3mm length × 1.5mm width (each pad)
 - Overall pad-to-pad span: 4.6-5.3mm
-- Body size: ~2.5mm × 1.3mm × 2.3mm height
+- **Body size: 4.5-5.3mm (L) × 2.5-2.8mm (W) × 2.0-2.3mm (H)**
+- Courtyard: Allow 6mm × 3.5mm minimum clearance
 - Polarized - mark cathode clearly on silkscreen (band end)
 
 ### Hand-Assembly Tips (Documented on Silkscreen)
