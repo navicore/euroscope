@@ -364,7 +364,7 @@ Divide PCB into logical sections to minimize crosstalk:
 **Via stitching for thermal pad**:
 - Multiple vias inside thermal pad footprint
 - Connects to bottom ground plane (large copper area)
-- Via-in-pad is acceptable for hand assembly (may need solder paste filling)
+- Avoid open via-in-pad for hand assembly: tent, plug, or use filled/capped microvias, or place vias just outside the pad with short spokes, unless filled vias are guaranteed. Open vias can wick solder and cause voids or insufficient wetting.
 
 ### Op-Amps
 
