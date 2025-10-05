@@ -267,7 +267,11 @@ fn map_adc_to_screen(
     let y_offset = (offset_from_center as f32 * pixels_per_adc) as i32;
     let y = (screen_height / 2) as i32 - y_offset; // Invert Y (screen grows down)
 
-    y.clamp(0, screen_height as i32 - 1)
+    if screen_height == 0 {
+        0
+    } else {
+        y.clamp(0, screen_height as i32 - 1)
+    }
 }
 ```
 
