@@ -154,40 +154,64 @@ pub struct DisplayState {
 
 ### 1. ADC Sampling Strategy
 
-**Continuous sampling** with DMA:
+**DMA-based round-robin sampling** (time-aligned channels):
 
 ```rust
 // Pseudo-code
 async fn adc_task(
     mut adc: Adc<'static>,
+    dma_channel: DmaChannel,
     buffer_ch1: &mut WaveformBuffer,
     buffer_ch2: &mut WaveformBuffer,
 ) {
-    loop {
-        // Sample both channels
-        let sample_ch1 = adc.read(&mut Pin26).await; // ADC0
-        let sample_ch2 = adc.read(&mut Pin27).await; // ADC1
+    // Circular DMA buffer: interleaved samples [CH0, CH1, CH0, CH1, ...]
+    let mut dma_buffer = [0u16; 2048]; // 1024 samples per channel
 
-        buffer_ch1.push(sample_ch1);
-        buffer_ch2.push(sample_ch2);
+    // Configure ADC for round-robin on GPIO26 (CH0) and GPIO27 (CH1)
+    let adc_config = Config {
+        round_robin: true,
+        channels: &[Channel::Gpio26, Channel::Gpio27],
+        sample_rate: calculate_sample_rate(settings.time_div),
+    };
+
+    // Start free-running ADC with DMA
+    adc.run_free_running(&dma_channel, &mut dma_buffer, adc_config).await;
+
+    loop {
+        // Wait for DMA half-complete (double buffering)
+        dma_channel.wait_half_complete().await;
+
+        // Process interleaved samples
+        let samples = &dma_buffer[0..1024]; // First half
+        for chunk in samples.chunks_exact(2) {
+            let sample_ch1 = chunk[0];
+            let sample_ch2 = chunk[1];
+
+            buffer_ch1.push(sample_ch1);
+            buffer_ch2.push(sample_ch2);
+        }
 
         // Check for trigger condition
         if check_trigger(buffer_ch1, &settings) {
             buffer_ch1.mark_trigger();
             signal_display_update();
         }
-
-        // Sample rate determined by time/div setting
-        Timer::after(calculate_sample_interval(settings.time_div)).await;
     }
 }
 ```
+
+**Why DMA + round-robin**:
+- **Time-aligned samples**: CH1 and CH2 sampled back-to-back (few µs apart, consistent)
+- **No CPU overhead**: DMA handles transfer while CPU processes
+- **Continuous acquisition**: No gaps in sampling
+- **Critical for dual-channel scope**: Phase relationships preserved
 
 **Sample rate calculation**:
 - Time/div setting determines pixels/second
 - Display width: 480 pixels
 - Example: 1ms/div × 10 div = 10ms full screen
-  - Need 480 samples over 10ms = 48kSPS
+  - Need 480 samples over 10ms = 48kSPS per channel
+  - ADC runs at 96kSPS (48k × 2 channels round-robin)
 - Adjust ADC sample rate based on time/div
 
 ### 2. Trigger Detection
