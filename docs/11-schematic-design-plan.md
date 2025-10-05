@@ -544,7 +544,7 @@ J_IN2 (tip) ────────────┴──> Ch2 input
 ### Buck Regulator Choice
 - **AP63203WU-7** (TSOT-26): Smaller, adequate current (2A)
 - **LMR33630ADDAR** (SO PowerPAD-8): Higher current (3A), thermal pad complexity
-- **Recommendation**: AP63203 for V1 (simpler layout, 2A sufficient)
+- **Recommendation**: AP63203 for the V1 (simpler layout, 2A sufficient)
 
 ---
 
