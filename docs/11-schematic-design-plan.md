@@ -359,58 +359,27 @@ J_IN2 (tip) ────────────┴──> Ch2 input
 #### Power Connector
 
 **J_PWR**: 2×5 keyed IDC header (shrouded, vertical)
-- **Pin layout** (Eurorack standard):
-```
-    -12V  GND  +5V (unused)  +5V (unused)  GND
-     GND  GND  CV  (unused)  GATE (unused) -12V
-```
 
-**Connections:**
-- -12V (pin 1) → Buck regulator input + TL074 V-
-- GND (pins 2, 5, 6, 7) → System ground
-- +12V (pins 8, 9) → Buck regulator input + TL074 V+
-
-**CORRECTED Eurorack pinout:**
+**Standard Eurorack 10-pin (2×5) power connector pinout:**
 ```
-  Pin 1: GND       Pin 2: GND
-  Pin 3: +5V (NC)  Pin 4: NC
-  Pin 5: CV (NC)   Pin 6: GATE (NC)
-  Pin 7: +12V      Pin 8: +12V
-  Pin 9: GND       Pin 10: GND
-  Pin 11: -12V     Pin 12: -12V (some variants)
+        RED STRIPE (−12V side)
+  Pin 1: −12V    Pin 2: GND
+  Pin 3: +5V     Pin 4: NC (or CV on some buses)
+  Pin 5: GND     Pin 6: GND
+  Pin 7: GND     Pin 8: +12V
+  Pin 9: +12V    Pin 10: +5V (optional)
 ```
 
-**Actual connections for 2×5 (10-pin):**
-- Pins 1, 2, 9, 10: GND
-- Pins 3, 4: +5V (not used)
-- Pins 5, 6: CV/Gate (not used)
-- Pins 7, 8: +12V → Buck regulator + TL074 V+
-- Pins 11 (if 2×6): -12V (check connector variant)
+**Trace module power connections:**
+- **Pin 1 (-12V)** → Reverse polarity protection → TL074 V-
+- **Pins 2, 5, 6, 7 (GND)** → System ground
+- **Pins 8, 9 (+12V)** → Buck regulator input, TL074 V+
+- **Pins 3, 4, 10** → Not connected (NC)
 
-**Note**: Standard 10-pin (2×5) Eurorack does NOT have explicit -12V pins. -12V comes from a **2×8 (16-pin)** connector.
-
-
-**Correct Eurorack 10-pin (2×5) power connector pinout:**
-```
-       RED STRIPE (−12V side)
-  −12V  GND  NC   NC   GND
-   GND  GND  +12V +12V +5V (optional)
-```
-
-**Properly mapped:**
-- Pin 1 (red stripe): -12V
-- Pin 2: GND
-- Pin 3, 4: NC (not connected, or CV/Gate on some buses)
-- Pin 5: GND
-- Pin 6: GND
-- Pin 7: GND
-- Pin 8, 9: +12V
-- Pin 10: +5V (optional, not used)
-
-**Final power connections:**
-- **-12V** (pin 1) → TL074 V-, reverse protection
-- **+12V** (pins 8, 9) → Buck regulator input, TL074 V+
-- **GND** (pins 2, 5, 6, 7) → System ground
+**Notes:**
+- Red stripe on ribbon cable marks -12V side (pin 1)
+- Keyed shrouded header prevents backwards insertion
+- Some buses provide CV/Gate on pins 4/10, but we don't use them
 
 ---
 
