@@ -207,8 +207,10 @@ INPUT JACK                PROTECTION           ATTENUATION         OFFSET/BUFFER
 ### Diodes (discrete Schottky)
 - **D1: SS14 (SMD)** or **1N5819 (TH)** Schottky (input clamp to +12V) ← Changed from BAT54S
 - **D2: SS14 (SMD)** or **1N5819 (TH)** Schottky (input clamp to -12V) ← Changed from BAT54S
-- **D3: SS14/1N5819/BAT85** Schottky (ADC clamp to +3.3V) ← Changed from BAT54S
-- **D4: SS14/1N5819/BAT85** Schottky (ADC clamp to GND) ← Changed from BAT54S
+- **D3: BAT85 (TH)** or other **low-capacitance Schottky** (ADC clamp to +3.3V)  
+- **D4: BAT85 (TH)** or other **low-capacitance Schottky** (ADC clamp to GND)
+  > **Note:** For D3/D4, use only low-capacitance Schottky diodes (e.g., BAT85, BAT54, or similar ≤15pF junction capacitance).  
+  > Do **not** use SS14 or 1N5819 for D3/D4, as their high junction capacitance (80–150pF) can degrade ADC settling time and bandwidth.  
 
 ### ICs
 - U1A: TL074 op-amp (offset/buffer stage)
