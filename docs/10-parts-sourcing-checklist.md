@@ -8,9 +8,9 @@ Verify availability and pricing at professional distributors (Newark, Mouser, Di
 ## Critical Components - Verify at Newark
 
 ### Op-Amps
-- [ ] **TL074IPWR** (SOIC-14, SMD)
+- [ ] **TL074IDR** (SOIC-14, SMD)
   - Manufacturer: Texas Instruments
-  - Package: SOIC-14 (TSSOP also acceptable)
+  - Package: SOIC-14 (TSSOP-14 also acceptable; use TL074IPWR for TSSOP-14)
   - Quantity needed: 2 (one per channel)
   - Specs: Quad JFET op-amp, ±18V supply
   - Newark part number: _____________
