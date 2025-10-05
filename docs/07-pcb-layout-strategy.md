@@ -290,7 +290,8 @@ Divide PCB into logical sections to minimize crosstalk:
 **SPI to Display** (RP2040 → LCD):
 - MOSI, SCK, CS, DC signals
 - Keep traces similar length (within 10mm of each other)
-- Can route as pseudo-differential pairs (MOSI+SCK adjacent)
+- Keep SCK well-referenced to ground and control its return path; avoid tightly coupling SCK and MOSI to minimize crosstalk
+- Only length-match data lines within reasonable skew margins
 - Trace impedance not critical at low SPI speeds (<10MHz)
 
 **ADC Inputs** (Op-Amp → RP2040 GPIO26/27):
